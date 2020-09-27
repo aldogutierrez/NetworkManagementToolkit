@@ -54,7 +54,7 @@
 
 ## 6.2 What if the packet size is 512 bytes and 20ms.
 
-512/0.02 = 25600 bytes/s = 25 KB/s
+![](https://latex.codecogs.com/gif.latex?%5C%5C%20512%20%5C%20%5Ctext%7Bbytes%7D%20%5C%5C%2020%20%5C%20%5Ctext%7Bms%7D%20%3D%2020*10%5E%7B-3%7D%20%5C%20%5Ctext%7Bseconds%7D%5C%5C%20%5C%5C%20%5Ctext%7BBandwidth%7D%20%3D%20%5Cfrac%7B512%20%5C%20%5Ctext%7Bbytes%7D%7D%7B20%20%5C%20%5Ctext%7Bms%7D%20%3D%2020*10%5E%7B-3%7D%20%5C%20%5Ctext%7Bseconds%7D%7D%20%3D%2025%20%5C%20%5Ctext%7BKB/s%7D)
 
 # 7. How do sliding windows help the maximum bandwidth problem?
 
@@ -77,21 +77,60 @@
 
 # 10. How do we pick a window size?
 
-
+- According to the `End-To-End Principle` we don't really know how reliable the data transfer so we just guess
+    - `Dropped Packet Detection`: We send more packets to the window **until** the network drops some packets, then we slow down the packet transfer. Then we use the maximum-non-dropped packet size.
 
 #11. How does the window size change?
 
+- When the network load becomes too big, we need to lower the window size so that we don't overload the network
 
+
+![](https://cdn.networklessons.com/wp-content/uploads/2015/07/xtcp-global-synchronization.png.pagespeed.ic.97a6qm9Ogu.png)
 
 # 12. How does a sender know that it is sending too fast?
 
-# 13. How is sending a record of data different when using UDP than TCP?
+- Their re-transmission rate go up, and the sender is not receiving the ACKs they were expecting
+    - This happens when the receiver has a full buffer and cannot process the segments sent by the sender
+
+# 13. How is sending a packet different when using UDP than TCP?
+
+- **UDP**: The sender sends straight to the receiver, there is no handshaking, there is no time-out, if a packet gets lost, it is the responbility of the sender to re-transmit
+
+- **TCP**: First, the sender & receiver stablish a connection via handshaking, a time-out is set for the connections in case there is a need to re-transmit, in case the packet gets lost, TCP uses the `double ACK` or the `time-out`
 
 # 14. How is data packetized in TCP?
 
+- Since TCP transports application data (POP3 <email>, HTTP <webpages>, FTP <files>) and splits them into chunks that TCP thinks are the best way to transport them. 
+
+- TCP must convert a sending application’s stream of bytes into a set of packets that IP can carry.
+    - Typically fitting each segment into a single IP-layer datagram that will not be fragmented
+
+- E.g
+
+10KB packet sent by the client
+
+However, the MTU is 1300 bytes
+
+----------
+TCP header = 40 bytes
+Then, we can only send (1300-40) = 1260 bytes
+----------
+
+**TCP send is a stream of bytes --> are broken into smaller chunks for easy transfer**
+
+So 10KB = 10240 bytes
+
+10240 bytes / MTU = 8 packets of 1300 bytes
+
+At the end we will send a 160 byte packet, then we have transfered the 10KB file
+
 # 15. What do the different fields in TCP header represent?
 
+![]()
+
 # 16. What do the different states of TCP mean? In other words, if you do a "netstat -an" and see that state, what do you know about the connection?
+
+
 
 # 17. What is a half-open connection? What can it be used for?
 
