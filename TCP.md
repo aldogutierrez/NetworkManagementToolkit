@@ -50,11 +50,7 @@
 
 ## 6.1 Calculate the maximum possible bandwidth if the packet size is 1KB and the round trip time is 22ms.
 
-1KB = 1024 bytes
-
-22ms = 0.022 sec
-
-1024/0.022 = 46545.45 bytes/s = 45.45 KB/s
+![](https://latex.codecogs.com/gif.latex?1%5C%20%5Ctext%7BKB%7D%20%3D%201024%20%5C%20%5Ctext%7Bbytes%7D%20%5C%5C%20%5C%5C%2022%20%5C%20%5Ctext%7Bms%7D%20%3D%2022*10%5E%7B-3%7D%20%5C%20%5Ctext%7Bseconds%7D%20%5C%5C%20%5C%5C%20%5Ctext%7BBandwidth%7D%20%3D%20%5Cfrac%7B1024%20%5C%20%5Ctext%7Bbytes%7D%7D%7B22*10%5E%7B-3%7D%20%5C%20%5Ctext%7Bseconds%7D%7D%20%3D%2045.%5Cbar%7B45%7D)
 
 ## 6.2 What if the packet size is 512 bytes and 20ms.
 
@@ -68,12 +64,12 @@
 
 - **Sender Window Size**: It helps keeping track of which sequence numbers have already been acknowledged, which are in flight, and which are yet to be sent.
 
-
+![](https://raw.githubusercontent.com/aldogutierrez/NetworkManagementToolkit/master/pictures/senderWindowTCP.png)
 
 - **Receiver Window Size**: It helps the receiver know which sequence number to expect next
     - Sequence numbers are stored when received, and those outside the window are discarded
 
-
+![](https://raw.githubusercontent.com/aldogutierrez/NetworkManagementToolkit/master/pictures/receiveWindowTCP.png)
 
 # 9. How do initial window sizes and timeouts get chosen?
 
