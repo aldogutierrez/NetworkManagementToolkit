@@ -111,10 +111,8 @@
 
 However, the MTU is 1300 bytes
 
-----------
 TCP header = 40 bytes
 Then, we can only send (1300-40) = 1260 bytes
-----------
 
 **TCP send is a stream of bytes --> are broken into smaller chunks for easy transfer**
 
@@ -157,13 +155,13 @@ At the end we will send a 160 byte packet, then we have transfered the 10KB file
 
 - Does **NOT** belong to `ESTABLISHED`, `FIN-WAIT`, `CLOSE-WAIT`, `CLOSING`, `LAST-ACK`, `TIME-WAIT`
 
-#18. What does the sequence number represent in TCP?
+# 18. What does the sequence number represent in TCP?
 
 - Sequence numbers represent some kind of packet ID, to help recover from damaged, lost, duplicated or ou-of-delivery packets
 
 - For TCP data transfer to suceed, each `sequence number` **must** be positively ACKed
 
-#19. What is the first sequence number of a TCP connection?
+# 19. What is the first sequence number of a TCP connection?
 
 - The Initial Sequence Number `ISN` works as a unique TCP connection identifier
     - It can be any number between 0 and 4,294,967,295
