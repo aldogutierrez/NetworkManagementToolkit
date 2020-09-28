@@ -170,7 +170,7 @@ At the end we will send a 160 byte packet, then we have transfered the 10KB file
 
 - The packet that was transmitted was sent succesfully, i.e received by the receiver
 
-## If a receiver ACKs sequence 27 and then ACKs sequence 1022, but the ACK 27 gets lost, does it need to resend the ACK for 27?
+## 20.1 If a receiver ACKs sequence 27 and then ACKs sequence 1022, but the ACK 27 gets lost, does it need to resend the ACK for 27?
 
 - NO
 
