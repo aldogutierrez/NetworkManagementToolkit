@@ -19,9 +19,9 @@
 
 # 4. Why are some ARP messages broadcast and other not?
 
-- **Request**: Broadcast
+- **Request**: `Broadcasted`, because the sender doesn't know which MAC to send to.
 
-- **Reply**: Unicast
+- **Reply**: `Unicasted`, because the sender does know the MAC address to send to.
 
 # 5. Why do we need an ARP cache?
 
