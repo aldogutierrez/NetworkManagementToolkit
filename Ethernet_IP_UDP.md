@@ -8,33 +8,33 @@
 
 # 2. What do each of the fields of Ethernet mean?
 
-- Preamble: Establishes **bit synchronization**
+- **Preamble**: Establishes **bit synchronization**
     - 7-bytes
 
-- Start of Frame Delimiter: Only 1-byte in length, always set to `10101011`
+- **Start of Frame Delimiter**: Only 1-byte in length, always set to `10101011`
     - 1-byte
 
-- Destination Address: The destination's MAC address
+- **Destination Address**: The destination's MAC address
     - 6-bytes
 
-- Source Address: The source's MAC address
+- **Source Address**: The source's MAC address
     - 6-bytes
     - The LSBit of the 1st byte is set to 0
 
-- Length: Represents the entire length of the frame
+- **Length**: Represents the entire length of the frame
     - 2-bytes 
 
-- Data: Actual data is inserted, also known as the **PAYLOAD**
+- **Data**: Actual data is inserted, also known as the **PAYLOAD**
     - Has a Maximum Tranmission Unit of `1500` bytes
     - Padding of 0s is included if the length is less than 46 bytes
 
-- CRC: Hash code representing the data 
+- **CRC**: Hash code representing the data 
     - 4-bytes
     - Hash(Dest Addrr, Src Addr, Length, Data Field)
 
 # 3. Where do MAC addresses come from?
 
-- They're burnt in the Network Interface Card (NIC) provided by the manufacturer and managed by the IEEE
+- They're burnt into the _Network Interface Card_ (NIC) provided by the manufacturer and managed by the IEEE
 
 # 4. Why do we need IP? Why can't we just use MAC addresses instead of IP addresses?
 
@@ -48,27 +48,28 @@
 
 - The IPv6 headers are simpler, as only the `version` and the `source` and `destination addressses` are kept.
 
-- IPv4 contains a `Time To Live`, `Checksum`, and `Fragmentation`CRC: Hash code representing the data and the `payload` length would vary
+- IPv4 contains a `Time To Live`, `Checksum`, and `Fragmentation`
+    `CRC`: Hash code representing the data and the `payload` length would vary
  
- - This would show how dynamic the headers are
+- This would show how dynamic the headers are
 
 # 6. Where do IPv4 addresses come from?
 
 - IP addresses are generated in the Network Layer and managed by the DHCP protocol
 
-- The Internet Assigned Numbers Authority (IANA) assigns blocks of IP addresses to regional internet registries. In turn, these regional registries allocate addresses to ISP, companies, schools, and similar institutions within their zone.
+- The **Internet Assigned Numbers Authority** (IANA) assigns blocks of IP addresses to regional internet registries. In turn, these regional registries allocate addresses to ISP, companies, schools, and similar institutions within their zone.
 
 # 7. What is a subnet mask?
 
 - A subnet mask is the range in which the network address is contained within the full IP address
 
-- To know how long the network address is, we can look at the CIDR notation and look for the numbers after the `/`
-    - `CIDR` stands for Classless Inter-Domain Routing
+- To know how long the network address is, we can look at the **CIDR** notation and look for the numbers after the `/`
+    - `CIDR` stands for **Classless Inter-Domain Routing**
 
 # 8. How do you get the network address from an IP address?
 
 - Say we have an IP address of `172.68.31.5/24`
-    - According to the CIDR notation, the first 24-bits belong to the network, the rest (the last 8) belong to the host
+    - According to the **CIDR** notation, the first 24-bits belong to the network, the rest (the last 8) belong to the host
     - Therefore, the network address is `172.68.31.0`
     - The host is `0.0.0.5`
     - The subnetmask would be `255.255.255.0`
@@ -93,7 +94,10 @@
 
 - When systems use Network Address Translation (NAT) the network can be represented by 1 IP address so we would need another type of identificaiton for packet sending, so we use the `port number`.
 
-# 12. How does UDP checksum break layering? Why is it done?
+# 12. How does UDP checksum break layering?
 
+- The UDP checksum includes IP header information in the checksum, which is at a lower layer (IP).
 
+## 12.1 Why is it done?
 
+- UDP does this to ensure that the packet arrived at the expected destination. Moreover, it will also make sure that the replies are going back to the expected source
