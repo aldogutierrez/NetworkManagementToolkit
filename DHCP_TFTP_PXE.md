@@ -1,8 +1,13 @@
-# 1. What is the relationship between BOOTP and DHCP? How do they differ?
+# 1. What is the relationship between BOOTP and DHCP?
 
-- BOOTP was an earlier version for IP address assignment.
+- BOOTP acted as an earlier version protocol for IP address assignment.
 
 - Then, DHCP came along, and added options to their protocol, the options can include DNS server and DHCP relay.
+
+## 1.1 How do they differ?
+
+- In DHCP, when the server received a `DISCOVER` packet the client can request several **options** that are helpful to the client.
+    - Some options include: 
 
 # 2. How do options generalize the functionality of DHCP?
 
@@ -18,13 +23,39 @@
 
 # 5. What are the phases of DHCP? How do the packet formats differ?
 
-- DISCOVER
+## 5.1 Allocation/Lease
 
-- OFFER
+- **DISCOVER**:
 
-- REQUEST
+![](https://www.netmanias.com/en/?m=attach&no=3368)
 
-- ACK
+- **OFFER**:
+
+![](https://www.netmanias.com/en/?m=attach&no=3369)
+
+- **REQUEST**:
+
+![](https://www.netmanias.com/en/?m=attach&no=3370)
+
+- **ACK**:
+
+![](https://www.netmanias.com/en/?m=attach&no=3371)
+
+## 5.2 Renewal
+
+- **REQUEST**:
+
+![](https://www.netmanias.com/en/?m=attach&no=3372)
+
+- **ACK**:
+
+![](https://www.netmanias.com/en/?m=attach&no=3373)
+
+## 5.3 Release
+
+- **RELEASE**: 
+
+![](https://www.netmanias.com/en/?m=attach&no=3374)
 
 # 6. How do the functional requirements of DHCP differ from IPv4 and IPv6?
 
