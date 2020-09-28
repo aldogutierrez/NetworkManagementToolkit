@@ -42,7 +42,7 @@
 
 - The DHCP relay, acts like a middleman to handle broadcasts and sends them to the ACTUAL DHCP server
 
-# 7.1 Why do we really only need the DHCP relay for handling the broadcast requests?
+## 7.1 Why do we really only need the DHCP relay for handling the broadcast requests?
 
 - The DHCP relay changes the bradcast address to the actual DHCP server address, then the router can send the request to the server
 
@@ -95,7 +95,7 @@ Server: IP: 100.1.1.1 -> DHCP Offer ->  172.68.31.5
 
 - NICs (Network Interface Cards) are made by a specific company, and these cards have the MAC address burnt into them, so Wireshark would know the ranges of MAC addresses and respectively their manufacturer.
 
-# 12.1 Where does it get the information from?
+## 12.1 Where does it get the information from?
 
 - Wireshark uses the `Wireshark Manufacturer Database` it contains most of the manufacturers domains for MAC addresses
 
