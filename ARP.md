@@ -6,12 +6,12 @@
 
 # 2. What layer does ARP run at?
 
-- ARP is part of the **data-link layer** _layer #2_
+- ARP is part of the **data-link layer** (_layer #2_)
 
 # 3. How is ARP used when sending IP packets to destinations not on the local network?
 
 1. First, we bradcast an Ethernet frame from our MAC address to **FF:FF:FF:FF:FF:FF**
-    1.1 This broadcast is accepted by all computers in the local network
+    - This broadcast is accepted by all computers in the local network
 
 2. The correspondent computer received the broadcast and answers with its MAC address
 
@@ -19,17 +19,17 @@
 
 # 4. Why are some ARP messages broadcast and other not?
 
-- Request: Broadcast
+- **Request**: Broadcast
 
-- Reply: Unicast
+- **Reply**: Unicast
 
 # 5. Why do we need an ARP cache?
 
-- We need the **ARP cache** in case we need to communicate with the same host againm that way we don't need to send another ARP broadcast
+- We need the **ARP cache** in case we need to communicate with the same host again, that way we don't need to send another ARP broadcast
 
 # 6. How is the ARP cache kept up-to-date?
 
-- In case we use the **dynamic** use of ARP, each entry expires after 20 minutes since the last use.
+- In case we **dynamically** use ARP, each entry expires after 20 minutes since the last use.
 
 - Every time we use the cached ARP value, we reset the timeout
     - This is an example of `soft state`, meaning that we must refresh the addresses to avoid expiration
@@ -41,22 +41,23 @@
 
 # 8. What is a gratuitous ARP?
 
-- We ARP ourselves, to update the MAC address. That way, everyone that has ARPed and cached our MAC address updated theirs
+- We ARP ourselves, to update everyone else's MAC address. That way, everyone that has ARPed and cached our MAC address, updates theirs
 
-- Because everytime we use ARP and get a successfull response, two ARP caches get updates, **ours** and our **target**
+- Everytime we use ARP and get a successfull response, two ARP caches get updated, **ours** and our **target**
 
 - It works just like broadcasting your identity so that everyone that has cached your MAC, can update their table
 
 # 9. What is ARP poisoning?
 
-- Man-In-The-Middle attack
+- ARP poisoning is a type of **Man-In-The-Middle attack**
 
-- You mask yourself as the router and ask for a specific host to store your MAC address
+- First, you mask yourself as the router (in the eyes of the victim host) and ask them to store your MAC address
+- Then, you mask yourself as the host (in the eyes of the router) and ask the router to cache your **fake** MAC address
     - Eventually, all their traffic gets forwarded to you
 
 ![](https://www.imperva.com/learn/wp-content/uploads/sites/13/2020/03/thumbnail_he-ARP-spoofing-attacker-pretends-to-be-both-sides-of-a-network-communication-channel.jpg)
 
 # 10. How does the receiver of an ARP response know that it got valid data?
 
-
+- ARP is an extremely insecure protocol, and in reality, we are never really sure that the response we get belongs to the desired host
 
