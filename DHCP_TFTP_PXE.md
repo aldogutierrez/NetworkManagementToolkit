@@ -96,6 +96,8 @@ Server: IP: 100.1.1.1 -> DHCP Offer ->  172.68.31.5
 
 - DHCP Proxy uses the DHCP Server Identifier (Option 54)
 
+![](https://www.netmanias.com/en/?m=attach&no=3402)
+
 # 9. Why is TFTP needed if we already had FTP? Why do you think PXE uses TFTP rather than FTP?
 
 - TFTP is easier, requires NO authentication, NO connection (as clients should handle packet retransmission)
