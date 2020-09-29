@@ -39,6 +39,9 @@
 - If the host we are trying to communicate with is unreachable, we just re-transmit the ARP broadcast
     - If we get no response, we get an incomplete cache (the ARP cache will expire after 3 minutes)
 
+- There's another thing called `ARP Probe`, this is used when we get a `DHCP OFFER` just to know that the adress we are being offered, is not not currently in use
+    - If we get no response, we can use that `DHCP OFFER`
+
 # 8. What is a gratuitous ARP?
 
 - We ARP ourselves, to update everyone else's MAC address. That way, everyone that has ARPed and cached our MAC address, updates theirs
@@ -46,6 +49,8 @@
 - Everytime we use ARP and get a successfull response, two ARP caches get updated, **ours** and our **target**
 
 - It works just like broadcasting your identity so that everyone that has cached your MAC, can update their table
+
+![](https://yurmagccie.files.wordpress.com/2018/04/arp-draw_io.jpg)
 
 # 9. What is ARP poisoning?
 

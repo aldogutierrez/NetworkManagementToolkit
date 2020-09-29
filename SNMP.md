@@ -78,23 +78,23 @@ SNMP {`RFC 1157`} <uses> -> MIB {`RFC 1214`} -> which uses -> SMI {`RFC 1155`} t
 # 10. Look at the MIB-2 mib (/usr/share/snmp/mibs/RFC1213-MIB.txt on your group server)
 ##  a. Use the MIB to figure out the numeric OID for sysUpTime
 
-
+- The MIB says `sysUpTime` has a value of  `system 3`
 
 ##  b. What does the OID 1.3.6.1.2.1.4.18.0 represent?
 
-
+- This presents the IP state of the device, which has value `IP-MIB::ipFragFails.0 = Counter32: 0`
 
 # 11. What are SNMP traps used for?
 
 - The manager can request a `trap` message that `notifies` the manager about any changes in the MIB
 
-## What is the problem with using them?
+## 11.1 What is the problem with using them?
 
 - The problem with `traps` is that since **ALL** of SNMP runs over UDP, _trap notifications can get lost_
     - If a `trap` is sent and then **lost** _NOBODY WILL KNOW_
     - Sender {agent} hopes it arrives, but the receiver won't even know its coming
 
-##How does inform help?
+## 11.2 How does inform help?
 
 - In the case of `inform` the sender expects a response
     - The manager will **ACK** the `inform` message
