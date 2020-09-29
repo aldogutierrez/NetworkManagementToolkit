@@ -80,7 +80,7 @@
 - According to the `End-To-End Principle` we don't really know how reliable the data transfer so we just guess
     - `Dropped Packet Detection`: We send more packets to the window **until** the network drops some packets, then we slow down the packet transfer. Then we use the maximum-non-dropped packet size.
 
-#11. How does the window size change?
+# 11. How does the window size change?
 
 - When the network load becomes too big, we need to lower the window size so that we don't overload the network
 
@@ -142,7 +142,7 @@ At the end we will send a 160 byte packet, then we have transfered the 10KB file
 
 ![](https://raw.githubusercontent.com/aldogutierrez/NetworkManagementToolkit/master/pictures/TCPstateDiagram.png)
 
-# 17. What is a half-open connection? What can it be used for?
+# 17. What is a half-open connection?
 
 - A `half-open` connection happens when the host at one end of the TCP connection has crashed, or has otherwise removed the socket without notifying the other end.
 
@@ -154,6 +154,9 @@ At the end we will send a 160 byte packet, then we have transfered the 10KB file
 - Such connections will automatically become reset if an attempt is made to send data in either direction
 
 - Does **NOT** belong to `ESTABLISHED`, `FIN-WAIT`, `CLOSE-WAIT`, `CLOSING`, `LAST-ACK`, `TIME-WAIT`
+
+## 17.1 What can it be used for?
+- `Helf-Open connections` are the first step into DoSing another machine
 
 # 18. What does the sequence number represent in TCP?
 
