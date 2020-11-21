@@ -45,7 +45,7 @@
 
 - It seems like `ss -i` extracts the value from the `TCP` header and dumps them on the screen, as the majority of the values belong to the header
 
-<<<<PUT PICTURE ON GIT AND PASTE HERE
+![](https://raw.githubusercontent.com/aldogutierrez/NetworkManagementToolkit/master/pictures/ss_i.png)
 
 ## 7.1 Why is it useful?
 
