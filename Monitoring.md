@@ -118,9 +118,10 @@ link-local          0.0.0.0         255.255.0.0         U           0           
             - First usable address: `192.168.122.0`
             - Last usable address: `192.168.122.255`
 
-If we take IP `8.8.8.8`, we don't know its `network` nor its `subnet mask` but it is not bounded to any of the 3 interfaces as all interfaces have their 3 first octects bounded to `10.32.41.x`, `172.30.2.x` or `192.168.122.x`; therefore, not granting enough space for `8.8.8.8`
+If we take IP `8.8.8.8`, we don't know its `network` nor its `subnet mask` but it is not bounded to any of the 3 interfaces as all interfaces have their 3 first octects bounded to `10.32.41.x`, `172.30.2.x` or `192.168.122.x`; therefore, not granting enough space for `8.8.8.8`, from here, **WE WILL NEED TO USE A ROUTER**
 
-- **None**, these interfaces do not reside in `8.8.8.8`'s network space
+- The only interface that is a router is `eth0`
+    - We can see the other interfaces being able to talk to `eth0` but the interface that forwards packets is only `eth0`
 
 ## 10.2 What about 192.168.122.4?
 
@@ -132,14 +133,9 @@ Based on the information from `10.1`, the only interface that is able to accomod
 
 The only interface that resembles `192.168.120.4` is `virbr0`; however, we see that the 3rd octed may impose a problem.
 
-- In binary `192.168.122.0` is `11000000.10101000.01111010.00000000`
-- And `192.168.120.4` is `11000000.10101000.01111000.00000100`
+- We see that `192.168.120.4` is outside of our local network, and we must use a router to reach such address
 
-
-- Doing bitwise `AND` we get `192.168.120.0`
-    - By doing bitwise `AND` we can accomodate `192.168.120.4` into `virbr0`
-
-- Otherwise, **_none of the iterfaces_** can accomodate the address
+- Again, the interface that is a default gateway is `eth0`
 
 # 11. Why is freshness of monitoring data important?
 
